@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>www.ukss.ac.tz</title>
+<style>
+body{
+font-family:Aerial, sans-serif; text-transform:uppercase;
+}
+label{
+display:block;
+margin-bottom:10px;
+}
+input{
+width:10%
+height:40px;
+margin-bottom:20px;
+padding:10px;
+border:1px solid #ccc;
+}
+button{
+width:10%
+height:40px;
+background-color:#4CAF50;
+color:#fff;
+padding:10px;
+border:none;
+border-radius:50px
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+<form id="student-results.html" align="center">
+<h3>Mzazi Wa:</h3>
+<input type="text" id="fname" name="fname" 
+placeholder="Jina la kwanza la Mwanafunzi" required><br>
+<input type="text" id="mname" name="mname"
+ placeholder="Jina la kati la Mwanafunzi" required><br>
+<input type="text" id="lname" name="lname"
+ placeholder="Jina la mwisho la Mwanafunzi" required><br>
+<select name="kidato" id="kidato">
+<option>Kidato</option>
+<option>I</option>
+<option>II</option>
+<option>III</option>
+<option>IV</option>
+</select>
+<button type="submit">Bonyeza Hapa</button>
+</form>
+	 <script>
+		 const resultForm=document.getElementById('student-results.html');
+		 resultForm.addEventListener('submit',(e)=>{e.preventDefault();
+		 
+		 const username=document.getElementById('username').value;
+		 const password=document.getElementById('kidato').value;
+		 
+		 localStorage.setItem('username',fname);
+		 localStorage.setItem('username',mname);
+		 localStorage.setItem('username',lname);
+		 localStorage.setItem('kidato',kidato);
+		 
+		 //Tutaorodheshwa majina yote na vidato vyao,
+		 mfano"
+		 const users=[
+		 {username:'F', username:'P', username:'L', kidato:'IV'},
+		 {username:'A', username:'M', username:'M', kidato:'III'}
+		 ];
+		 const user=users.find(user)=>user.username===fname&&
+                                      user.username===mname&&
+									  user.username===lname&&
+									  user.username===kidato);
+		if(user){
+		 window.location.href="enter-student-marks.html";
+		 }else{
+		 alert('Please Contact Your School Academic Masters');
+		 }		 });
+        </script> 
+	</body>
+</html>
+
+		 
+
+		 
+
+		 
