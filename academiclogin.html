@@ -30,7 +30,7 @@ cursor:pointer;
 </style>
 </head>
 <body>
-<form id="students-admins" align="center">
+<form id="academiclogin" align="center">
 <br><br>
 <input type="text" id="username" name="username" placeholder="Username" required>
 <input type="password" id="password" name="password"placeholder="Password"required> <br>
@@ -39,15 +39,14 @@ cursor:pointer;
 	
 	 <script>    
  const users = [
-   {username: 'Ombeni', password: 'o1'},
-   {username: 'Eunice', password: 'eu1'},
-   {username: 'Lekuta', password: 'l1'},
-    {username: 'Admin', password: 'admin'}
+   {username: 'Azory', password: 'a1'},
+   {username: 'Imma', password: 'i1'},
+   {username: 'Admin2', password: 'admin2'}
  ];
  localStorage.setItem('users', JSON.stringify(users));
          
- const studentsadminsForm = document.getElementById('students-admins');
- studentsadminsForm.addEventListener('submit', (e) => {
+ const academicForm = document.getElementById('academiclogin');
+ academicForm.addEventListener('submit', (e) => {
    e.preventDefault();
              
    const username = document.getElementById('username').value;
@@ -61,9 +60,9 @@ cursor:pointer;
 
    if (user) {
      // redirect instead of alert
-     window.location.href = 'view-student-comments.html';
+     window.location.href = 'enter-student-marks.html';
    } else {
-     alert('Sorry! Please Contact School Head Boy or School Head Girl');
+     alert('Please Contact Your School Academic Masters');
    }
  });
 </script>
