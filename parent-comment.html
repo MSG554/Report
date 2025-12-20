@@ -1,52 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="sw">
 <head>
-<title>www.ukss.ac.tz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+ 
+  <title>www.ukss.ac.tz</title>
+  <style>
+body{
+font-family:Aerial, sans-serif;
+}
+label{
+display:block;
+margin-bottom:10px;
+}
+input{
+width:100%
+height:40px;
+margin-bottom:20px;
+padding:10px;
+border:1px solid #ccc;
+}
+button{
+width:100%
+height:40px;
+background-color:#4CAF50;
+color:#fff;
+padding:10px;
+border:none;
+border-radius:50px
+cursor:pointer;
+}
+</style>
 </head>
 <body>
-<!DOCTYPE html>
-<html align="center">
-<head>
-<title>Login</title>	
-</head>
+ <h3 align="center">Toa Maoni Yako Tuijenge Umoja Pamoja</h3>
+<h4 align="center">Mzazi wa:</h4>
 
-<body>
-<h3>Toa Maoni Yako Tuijenge Umoja Pamoja</h3>
-<h4>Mzazi wa:</h4>
-<form method="parent-comment.php" action="post">
-<table border="0" cellpadding="10"cellspacing="10"align="center" width="100px" height="20%">
-<tr>
-	<td><input type="textbox" placeholder="Jina la kwanza la mwanafunzi" required></td>
-</tr>
-<tr>
-	<td><input type="textbox" placeholder="Jina la pili la mwanafunzi" required></td>
-</tr>
-<tr>
-	<td><input type="textbox" placeholder="Jina la tatu la mwanafunzi"required></td>
-</tr>
-
-<tr>
-	<td align="center">
-		<select name="class" required>
-			<option>Kidato</option>
-			<option>I</option>
-			<option>II</option>
-		        <option>III</option>
-			<option>IV</option>
-	</select>
-	</td>
-</tr>
-<tr>
-<td align="center">
-<textarea>
-</textarea>
-	</td></tr><tr>
-	
-	<td align="center">
-	<input type="submit" value="Tuma Maoni">
-	</td></tr></table>
+<form id="parent-comment" align="center">
+<input type="text" id="fname" name="fname" placeholder="Jina la kwanza la mwanafunzi" required>
+<br>
+<input type="text" id="mname" name="mname" placeholder="Jina la kati la mwanafunzi" required>
+<br>
+<input type="text" id="lname" name="lname" placeholder="Jina la mwisho la mwanafunzi" required>
+<br>
+<select id="kidato" name="kidato" required>
+			<option value="">Chagua Kidato</option>
+			<option value="I">Kidato cha Kwanza</option>
+			<option value="II">Kidato cha Pili</option>
+		    <option value="III">Kidato cha Tatu</option>
+			<option value="IV">Kidato cha Nne</option>
+</select>
+<br><br>
+<textarea id="maoni" name="maoni" placeholder="Andika maoni yako hapa" required></textarea>
+<br><br>
+<button type="submit">Login</button>
 </form>
-</body>
-</html>
+
+ <script>
+  const parentcommentForm = document.getElementById('parent-comment');
+
+  parentcommentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const fname = document.getElementById('fname').value;
+    const mname = document.getElementById('mname').value;
+    const lname = document.getElementById('lname').value;
+    const kidato = document.getElementById('kidato').value;
+    const maoni = document.getElementById('maoni').value;
+
+    // Sahihi: parse data kutoka localStorage au tumia array tupu
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+    // Ongeza data mpya
+    comments.push({ fname, mname, lname, kidato, maoni });
+
+    // Hifadhi tena kwenye localStorage
+    localStorage.setItem('comments', JSON.stringify(comments));
+
+    alert('Asante Kwa Kushiriki Nasi, Maoni Yako Yamepokelewa.');
+	
+	window.location.reload();
+  });
+</script>
 </body>
 </html>
