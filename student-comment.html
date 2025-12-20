@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <title>Maoni ya Wanafunzi</title>
+</head>
+<body>
+  <h2>Tuma Maoni Yako</h2>
+
+  <!-- Fomu ya maoni -->
+  <form id="commentsForm">
+    <label for="f_name">Jina la Kwanza:</label>
+    <input type="text" id="f_name" name="f_name" required><br><br>
+
+    <label for="m_name">Jina la Pili:</label>
+    <input type="text" id="m_name" name="m_name"><br><br>
+
+    <label for="l_name">Jina la Mwisho:</label>
+    <input type="text" id="l_name" name="l_name" required><br><br>
+
+    <label for="kidato">Kidato:</label>
+    <input type="text" id="kidato" name="kidato" required><br><br>
+
+    <label for="mwaka">Mwaka wa Kuhitimu:</label>
+    <input type="text" id="mwaka" name="mwaka" required><br><br>
+
+    <label for="maoni">Maoni:</label><br>
+    <textarea id="maoni" name="maoni" rows="4" cols="40" required></textarea><br><br>
+
+    <button type="submit">Tuma Maoni</button>
+  </form>
+
+  <div id="feedback"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("commentsForm");
+      const feedback = document.getElementById("feedback");
+
+      if (form) {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault(); // Zuia kurasa isirefresh
+
+          // Kusoma data kutoka kwenye fomu
+          const f_name = document.getElementById("f_name").value;
+          const m_name = document.getElementById("m_name").value;
+          const l_name = document.getElementById("l_name").value;
+          const kidato = document.getElementById("kidato").value;
+          const mwaka = document.getElementById("mwaka").value;
+          const maoni = document.getElementById("maoni").value;
+
+          // Hapa unaweza kuandika code ya kutuma data kwa server (AJAX/fetch)
+          // Kwa sasa tuonyeshe feedback
+          feedback.innerHTML = `
+            <p><strong>Asante!</strong> Maoni yako yametumwa:</p>
+            <ul>
+              <li>Jina: ${f_name} ${m_name} ${l_name}</li>
+              <li>Kidato: ${kidato}</li>
+              <li>Mwaka: ${mwaka}</li>
+              <li>Maoni: ${maoni}</li>
+            </ul>
+          `;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
