@@ -6,10 +6,12 @@
 body{
 font-family:Aerial, sans-serif;
 }
+
 label{
 display:block;
 margin-bottom:10px;
 }
+
 input{
 width:100%
 height:40px;
@@ -17,6 +19,7 @@ margin-bottom:20px;
 padding:10px;
 border:1px solid #ccc;
 }
+
 button{
 width:100%
 height:40px;
@@ -29,11 +32,13 @@ cursor:pointer;
 }
 </style>
 </head>
+
 <body>
-<form id="students-admins" align="center">
+<form id="students-admins">
 <br><br>
+<div>
 <input type="text" id="username" name="username" placeholder="Username" required>
-<input type="password" id="password" name="password"placeholder="Password"required> <br>
+<input type="password" id="password" name="password"placeholder="Password"required> 
 <button type="submit">Login</button>
 </form>
 	
@@ -61,9 +66,9 @@ cursor:pointer;
 
    if (user) {
      // redirect instead of alert
-     window.location.href = 'headprefectspage.html';
+     window.location.href = 'view-student-comments.html';
    } else {
-     alert('Sorry! Please Contact School Head Boy or School Head Girl');
+     alert('Contact School Head Boy or School Head Girl or School General Secretary');
    }
  });
 </script>

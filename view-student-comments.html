@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="sw">
 <head>
-<title>www.ukss.ac.tz</title>
+  <meta charset="UTF-8">
+  <title>www.ukss.ac.tz</title>
 </head>
-<p>
-Walimu wote tutaweza kusoma comments za wanafunzi wetu 
-</p>
-<p>
-Tutatumia username:<b>Admin</b> na password:<b>admin</b> kwa kipindi chote cha maboresho
-</p>
 <body>
+  <h3>Maoni ya Wanafunzi</h3>
+  <h3>Mimi:</h3>
+  <ul id="comments-list"></ul>
+  <script>
+   
+    document.addEventListener('DOMContentLoaded', function() {
+      // Pata data kutoka localStorage
+      const comments = JSON.parse(localStorage.getItem('comments')) || [];
+      const commentsList = document.getElementById('comments-list');  
+
+      // Onyesha kila comment kwenye ukurasa
+      comments.forEach((comment, index) => {
+        const commentElement = document.createElement('li');
+        commentElement.innerHTML = `
+          <h4>${index + 1}. ${comment.fname} ${comment.mname} ${comment.lname}</h4>
+          <p>Kidato: ${comment.kidato} Mwaka: ${comment.mwaka-uliohitimu}</p>
+          <p>${Maoni.maoni}</p
+          <hr>
+        `;
+        commentsList.appendChild(commentElement);
+      });
+    });
+  </script>
+</body>
+</html>
